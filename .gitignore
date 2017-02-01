@@ -223,7 +223,9 @@ target/
 /src/main/java/net/
 /.idea/inspectionProfiles
 /.idea/inspectionProfiles/Project_Default.xml
-
-# MCP
-mcp*.zip
-
+/.idea/compiler.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.vscode/settings.json
+/*.log
+/*.lck

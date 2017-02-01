@@ -16,6 +16,7 @@
 #include "../render/objects/shaders/geometry_filter.h"
 #include "../render/objects/shaders/shaderpack.h"
 #include "../mc_interface/mc_gui_objects.h"
+#include "../mc_interface/mc_objects.h"
 
 namespace nova {
     /*!
@@ -26,6 +27,7 @@ namespace nova {
     class mesh_store {
     public:
         void add_gui_geometry(mc_gui_screen& screen);
+        void add_gui_buffers(mc_gui_send_buffer_command* command);
 
         /*!
          * \brief Sets the shaderpack reference to the given shaderpack
@@ -45,6 +47,12 @@ namespace nova {
          */
         std::vector<render_object *> get_meshes_for_shader(std::string shader_name);
 
+
+        /*!
+        * \brief Removes all gui render objects and thereby deletes all the buffers
+        */
+        void remove_gui_render_objects();
+
     private:
         std::unordered_map<std::string, std::vector<render_object*>> renderables_grouped_by_shader;
 
@@ -58,6 +66,7 @@ namespace nova {
          * \param object The render_object to sort
          */
         void sort_render_object(render_object *object);
+
 
         /*!
          * \brief Removes all the render_objects from the lists of render_objects that match the given fitler funciton
